@@ -51,12 +51,25 @@ to sum, if the current sum is less than a single element at nums[i], we want to 
 4. We will notice that on the left pass, the last element is skipped and on the right pass the first element is skipped, this is okay because once we do left[i] * right[i] to get a product[i], this will fill any necessary gaps and since we did i + offset, we will not include the current element in the products.
 
 #### Solution #3: time - O(N) and space O(1) 
-1.We can do the exact approach above and skip the left/right array and directly put the leftProducts into the output array. When we calculate the right array we will directly do the multiplication there avoiding a third pass and any unnecessary space.
+1. We can do the exact approach above and skip the left/right array and directly put the leftProducts into the output array. When we calculate the right array we will directly do the multiplication there avoiding a third pass and any unnecessary space.
 
 
 ### 153. Find Minimum in Rotated Sorted Array - Suppose an array of length n sorted in ascending order is rotated between 1 and n times. Given the sorted rotated array nums of unique elements, return the minimum element of this array.
 
-#### Solution #1: time - O(N) and space = O(1)
+#### Solution #1: time O(log(n)) and space O(1)
+
+1. Keep track of lowest value if the array happens to be not rotated.
+2. Use Binary search:
+    start pointer
+    end pointer
+    mid = left + (right - left) / 2
+3. If we ever hit a pointer where step 2 from solution 2 is hit, we return immediately
+4. If our nums[mid] is ever greater than nums[right],
+we know that the minimum must lie between mid -> right, so we move the left pointer to mid + 1
+5. If step 4 is not true, we know to move the right pointer inward as the solution must lie from left -> mid
+6. Key here is to know #3 and that the only way the lowest value can be on the right side is if mid is greater than right since 8......4 is only possible if some value in that range is between 8 and 4
+
+#### Solution #2: time - O(n) and space = O(1)
 
 1. Keep track of lowest value if the array happens to be not rotated. 
 2. Iterate through array if at any point you find a nums[i] which is less than the previous value of nums[i-1], return it since that means nums[i] is the lowest. Example 345(1)23, since nums[3] (1) is less than nums[2] (5) we know we found the point where the array stopped sorting as expected so return num[3] (1). 
