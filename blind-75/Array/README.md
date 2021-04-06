@@ -75,6 +75,13 @@ we know that the minimum must lie between mid -> right, so we move the left poin
 2. Iterate through array if at any point you find a nums[i] which is less than the previous value of nums[i-1], return it since that means nums[i] is the lowest. Example 345(1)23, since nums[3] (1) is less than nums[2] (5) we know we found the point where the array stopped sorting as expected so return num[3] (1). 
 3. If this scenario is not found that means we have a typical incremented array of n < n+1. therefore return the smallest n.
 
+### 33. Search in Rotated Sorted Array
+
+#### Solution #1: time O(log(n)) and space O(1)
+1. Same as above question but instead you need to determine which side is sorted correctly
+2. look at code...
+
+
 
 
 
