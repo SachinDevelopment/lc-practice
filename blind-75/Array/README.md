@@ -63,11 +63,11 @@ to sum, if the current sum is less than a single element at nums[i], we want to 
     start pointer
     end pointer
     mid = left + (right - left) / 2
-3. If we ever hit a pointer where step 2 from solution 2 is hit, we return immediately
+3. If we ever hit a mid pointer where step 2 from solution 2 is hit, we return immediately
 4. If our nums[mid] is ever greater than nums[right],
 we know that the minimum must lie between mid -> right, so we move the left pointer to mid + 1
 5. If step 4 is not true, we know to move the right pointer inward as the solution must lie from left -> mid
-6. Key here is to know #3 and that the only way the lowest value can be on the right side is if mid is greater than right since 8......4 is only possible if some value in that range is between 8 and 4
+6. Key here is to know #3 and that the only way the lowest value can be on the right side is if mid is greater than right since 5...8......4 is only possible if smallest value in that range is between 8 and 4
 
 #### Solution #2: time - O(n) and space = O(1)
 
