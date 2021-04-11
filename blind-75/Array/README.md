@@ -82,6 +82,25 @@ we know that the minimum must lie between mid -> right, so we move the left poin
 2. look at code...
 
 
+### 15. 3Sum
+
+#### Solution #1 - time O(n^2) and space O(n^2)
+1. Sort Array
+2. iterate through array i -> length-2 (2 reserved for left and right)
+3. If i > 0 and nums[i] == nums[i-1] skip this
+4. if not skipped while(left < right) 
+5. move pointers based on nums[i] + nums[left] + nums[right] <>= 0
+6. Avoiding [-2,-2,0,0,2,2] <=== really fun edge case when you find 3sum you need to left++
+7. Afterwards check While num[left] == num[left-1] left++;
+
+
+## 14. Container with most water
+
+#### Solution #1 - time (O(n)) and space O(n)
+
+1. calculate max everytime
+2. Set up two pointers from each side
+2. Compare nums[left] and nums[right], move smaller pointer inward
 
 
 
